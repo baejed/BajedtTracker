@@ -1,0 +1,5 @@
+2000.0 Allowance(+2000.00)
+1500.0 Cinema(-500.00)
+900.0 Payment(-600.00)
+500.0 Ticket(-400.00)
+100.0 Ticket Payment(-400.00)
