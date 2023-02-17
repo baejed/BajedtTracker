@@ -1,5 +1,7 @@
 package CashLog;
 
+import DateAndTime.DateAndTimeReader;
+
 import java.io.*;
 import java.util.Scanner;
 
@@ -13,6 +15,9 @@ public class Transact {
     PrintWriter printWriter = new PrintWriter(balanceWriter);
     Scanner readBalance = new Scanner(new File("C:\\Users\\bajed\\IdeaProjects\\BajedtTracker\\Data\\BalanceLog.txt"));
     Scanner inputReceiver = new Scanner(System.in);
+    DateAndTimeReader dateAndTimeReader = new DateAndTimeReader();
+
+    String currentDate = dateAndTimeReader.getDateAndTime();
 
     public Transact() throws IOException {
     }
@@ -38,7 +43,8 @@ public class Transact {
         FINAL = temp + depositOrWithdraw;
 
         printWriter.print(FINAL);
-        printWriter.printf(" %s(+%.2f)\n", source, depositOrWithdraw);
+        printWriter.printf(" %s(+%.2f)", source, depositOrWithdraw);
+        printWriter.printf(" %s\n", currentDate);
 
         printWriter.flush();
         printWriter.close();
@@ -67,7 +73,8 @@ public class Transact {
             FINAL = temp - depositOrWithdraw;
 
             printWriter.print(FINAL);
-            printWriter.printf(" %s(-%.2f)\n", source, depositOrWithdraw);
+            printWriter.printf(" %s(-%.2f)", source, depositOrWithdraw);
+            printWriter.printf(" %s\n", currentDate);
 
             printWriter.flush();
             printWriter.close();
